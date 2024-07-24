@@ -1,0 +1,32 @@
+.bg_order_card {
+  background: #141519;
+  border: 2px solid rgba(34,36,39,1);
+  border-radius: 10px;
+}
+
+#order_prompt::placeholder, .v-input::placeholder {
+  color: #666;
+  opacity: 1;
+}
+
+.preview-file{
+  opacity: 0;
+  // width: 120px;
+  height: 180px;
+  border-radius: 0.3em !important;
+  position: absolute;
+  top: 0;
+}
+
+.token_c {
+  font-family: Helvetica-Bold;
+  color: #FFD06A;
+}
+
+.s-model img {
+  transition: transform 0.5s ease;
+}
+
+.s-model:hover img {
+  transform: scale(1.2);
+}

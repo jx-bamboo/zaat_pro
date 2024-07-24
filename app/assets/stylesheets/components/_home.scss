@@ -1,0 +1,55 @@
+.home_content {
+  // width: 535px;
+  // height: 53px;
+  font-family: Arial;
+  font-weight: 400;
+  color: #FFFFFF;
+  // line-height: 30px;
+  text-stroke: 2px #1D85FD;
+  -webkit-text-stroke: 2px #1D85FD;
+  // text-shadow:2px 2px #FF0000;
+}
+
+.text_shadow_create {
+  text-shadow: 0 2px 10px #0D50FE;
+}
+
+.text_shadow_earn {
+  text-shadow: 0 2px 10px #FA1AFF;
+}
+
+.btn_shadow_create {
+  box-shadow: 0px 0px 20px -5px #0D50FE;
+}
+
+.btn_shadow_earn {
+  box-shadow: 0px 0px 20px -5px #FA1AFF;
+}
+
+/* 小于 576px（Bootstrap 的 sm 断点） */  
+@media (max-width: 575.98px) {  
+  .h-fs {
+    font-size: 1.25rem;
+  }  
+}  
+  
+/* 576px 到 767.98px 之间（Bootstrap 的 md 断点） */  
+@media (min-width: 576px) and (max-width: 767.98px) {  
+  .h-fs {
+    font-size: 1rem;
+  }  
+}  
+  
+/* 768px 到 991.98px 之间（Bootstrap 的 lg 断点） */  
+@media (min-width: 768px) and (max-width: 991.98px) {  
+  .h-fs {
+    font-size: 1.5rem;
+  }  
+}  
+  
+/* 992px 及更大（Bootstrap 的 xl 断点） */  
+@media (min-width: 992px) {  
+  .h-fs {
+    font-size: 1.75rem;
+  }  
+}

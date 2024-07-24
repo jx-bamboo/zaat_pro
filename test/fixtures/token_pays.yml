@@ -1,0 +1,21 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  chain: MyString
+  name: MyString
+  symbol: MyString
+  contract_address: MyString
+  contract_abi: MyText
+  receive_address: MyString
+  price: 9.99
+  icon: MyString
+
+two:
+  chain: MyString
+  name: MyString
+  symbol: MyString
+  contract_address: MyString
+  contract_abi: MyText
+  receive_address: MyString
+  price: 9.99
+  icon: MyString

@@ -1,0 +1,2 @@
+class GptApi < ApplicationRecord
+end

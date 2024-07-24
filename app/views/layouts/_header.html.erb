@@ -1,0 +1,49 @@
+<nav class="navbar navbar-expand-lg bg-body-dark py-2 py-md-3 py-lg-4 mb-sm-3 mb-md-4 mb-lg-5">
+  <div class="container">
+    <a class="navbar-brand" href="<%= root_path %>" data-turbo-prefetch="false"><%= image_tag "logo.svg" %></a>
+    <!-- <button class="navbar-toggler text-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon text-light"></span>
+    </button> -->
+    <!-- <div class="collapse navbar-collapse" id="navbarTogglerDemo02"> -->
+      <!-- <ul class="nav navbar ms-2 ms-sm-4 me-auto">
+        <li class="nav-item">
+          <a class="text-decoration-none fs0875 gradient-text" aria-current="page" href="#">Docs</a>
+        </li>
+        <li class="nav-item ms-4">
+          <a href="/admin" data-turbo-prefetch="false" class="text-decoration-none fs0875 gradient-text">Admin</a>
+        </li>
+      </ul> -->
+
+      <div class="nav navbar">
+
+        <div class="bg_gradient padding1 rounded-pill me-3 cursor-pointer" data-controller="metamasklogin">
+          <% if user_signed_in? %>
+            <% unless current_user.format_address %>
+              <button class="bg-dark border-0 rounded-pill p-0" id="metabtn" data-action="metamasklogin#login">
+                <%= image_tag "metamask.png", width: 28, class: "p-1 h-menu" %>
+              </button>
+            <% else %>
+              <button class="border-0 text-bg-dark rounded-pill p-0">
+                <span class="px-1"><%= simple_address current_user.format_address %></span>
+              </button>
+            <% end %>
+            
+          <% else %>
+            <button class="bg-dark border-0 rounded-pill p-0" id="metabtn" data-action="metamasklogin#login">
+              <%= image_tag "metamask.png", width: 28, class: "p-1 h-menu" %>
+            </button>
+          <% end %>
+        </div>
+
+        <span class="border border-dark py-2 me-3"></span>
+        <% if user_signed_in? %>
+          <%= render "layouts/signed_button" %>
+        <% else %>
+          <%= render "layouts/no_signed_button" %>
+        <% end %>
+      </div>
+    <!-- </div> -->
+  </div>
+</nav>
+<%#= javascript_include_tag "mm_login", "data-turbo-track": "reload" %>
+<div id="liveAlertPlaceholder" class="position-fixed bottom-0 end-0 p-3 z-3"></div>

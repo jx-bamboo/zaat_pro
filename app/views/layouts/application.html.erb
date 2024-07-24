@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Zaat</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= favicon_link_tag 'favicon.png' %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <script async src="https://ga.jspm.io/npm:es-module-shims@1.8.2/dist/es-module-shims.js" data-turbo-track="reload"></script>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+    <div class="home">
+      <%= render "layouts/flash_message" %>
+      <%= render "layouts/header" %>
+      <div class="container text-light overflow-auto">
+        <%= yield %>
+      </div> 
+    </div>
+  </body>
+</html>

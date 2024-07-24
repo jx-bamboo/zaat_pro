@@ -1,0 +1,82 @@
+body {
+  // background-color: #000;
+  // opacity: 0.5;
+  font-family: Helvetica;
+  background-image: url("bg_home.png");
+  background-size: cover; /* 图片覆盖整个元素 */
+  background-position: center; /* 图片居中显示 */
+  background-repeat: no-repeat; /* 图片不重复 */
+  background-color: #000;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+@-moz-document url-prefix() {
+  html, body {
+    scrollbar-width: none;
+  }
+}
+
+.cred {
+  border: 0.1px solid red;
+}
+
+.bg_gradient {
+  --bs-bg-opacity: 1;
+  background-image: var(--main-bg-gradient) !important;
+}
+
+.fs075{
+  font-size: 0.75rem;
+}
+
+.fs0875{
+  font-size: 0.875rem;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.cursor-copy {
+  cursor: copy;
+}
+
+.blur-div-background {
+  backdrop-filter: blur(10px);
+  // filter: blur(5px);
+}
+
+.padding1 {
+  padding: 1px;
+}
+
+.padding2 {
+  padding: 2px;
+}
+
+.w-45 {
+  width: 45% !important;
+}
+
+.w-90 {
+  width: 90% !important;
+}
+
+.top-25 {
+  top: 25% !important;
+}
+
+.top-30 {
+  top: 30% !important;
+}
+
+.hover_to_gradient:hover, .p_v_btn:hover {
+  background-image: var(--main-bg-gradient);
+}
+
+.dropdown-toggle::after {
+  display: none;
+}
