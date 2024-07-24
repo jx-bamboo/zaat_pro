@@ -71,9 +71,13 @@ export default class extends Controller {
 
     // 定义 appendAlert 函数
     const appendAlert = (message, type) => {
+      const existingWrapper = document.getElementById('liveAlert');
+      if (existingWrapper) {
+        existingWrapper.remove();
+      }
       const wrapper = document.createElement('div');
       wrapper.innerHTML = [
-        `<div class="bg_gradient text-light alert alert-${type} alert-dismissible" role="alert">`,
+        `<div id="liveAlert" class="bg_gradient text-light alert alert-${type} alert-dismissible" role="alert">`,
         `   <div>${message}</div>`,
         '   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
         '</div>'
