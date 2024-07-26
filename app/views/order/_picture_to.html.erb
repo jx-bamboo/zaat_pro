@@ -4,9 +4,12 @@
 
   <%= form_for(@order, url: order_index_path(@order), html: {class: "order_form", id: "order_form"}, data: {turbo: false}) do |f| %>
     <%= f.hidden_field :txhash %>
+    <div class="mt-3">
+      <%= f.text_area :prompt, rows: 8, class: "form-control text-secondary bg-transparent border-dark mb-3 fs0875", contenteditable: true, placeholder: "Enter your Prompt", required: "required" %>
+    </div>
     <div class="my-3 position-relative">
       <div class="text-center border border-dark py-3" style="height: 153px;">
-        <%= image_tag "add.svg", class: "rounded img-fluid h-100 shadow", id: "preview", alt: "CAKEBABA", title: "CAKEBABA" %>
+        <%= image_tag "add.svg", class: "rounded img-fluid h-100 shadow", id: "preview", alt: "ZAAT", title: "ZAAT" %>
         <%= f.file_field :image, class: "form-control preview-file cred", accept: "image/*", onclick: "uploadImg('order_image','preview')", required: "required" %>
       </div>
       <div class="text-center text-secondary">Recommended image size should be under 10Mb.</div>

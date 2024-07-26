@@ -1,8 +1,15 @@
-<div class="bg-dark p-4 rounded">
+<div class="bg-dark rounded">
   
   <% if order.status == "completed" %>
     <div class="position-relative" id="mmodel">
       <div id="three" class="p-0 w-100 h-100 overflow-hidden d-flex justify-content-center"></div>
+    </div>
+    
+    <div class="d-flex justify-content-between" style="background: #202020;" resize="vertical">
+      <div><img src="/order/order_<%= order.id %>/img_90.png" class="img-fluid" alt="ZAAT" title="ZAAT"></div>
+      <div><img src="/order/order_<%= order.id %>/img_180.png" class="img-fluid" alt="ZAAT" title="ZAAT"></div>
+      <div><img src="/order/order_<%= order.id %>/img_270.png" class="img-fluid" alt="ZAAT" title="ZAAT"></div>
+      <div><img src="/order/order_<%= order.id %>/img_360.png" class="img-fluid" alt="ZAAT" title="ZAAT"></div>
     </div>
   <% else %>
     <div class="text-center text-light py-5">

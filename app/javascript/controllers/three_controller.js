@@ -35,8 +35,7 @@ export default class extends Controller {
     this.camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
     this.renderer = new THREE.WebGLRenderer();
     this.renderer.setSize(window.innerWidth * 0.5, window.innerHeight * 0.5);
-    // renderer.setSize(container.clientWidth, container.clientHeight);
-    // parentDiv.appendChild(renderer.domElement);
+    // this.renderer.setSize(650, window.innerHeight * 0.5);
     
     this.controls = new OrbitControls(this.camera, this.renderer.domElement);
     this.controls.enableDamping = true; // 鼠标平滑控制旋转
@@ -66,7 +65,7 @@ export default class extends Controller {
     var imagePath = '';
     if (paramValue) {
       imagePath = '/order/' + paramValue + '/result.glb';
-    } else {  
+    } else {
       imagePath = '/three/eiffel.glb';
     }
 

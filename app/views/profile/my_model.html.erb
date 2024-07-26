@@ -12,7 +12,7 @@
       <div class="row row-cols-auto row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 row-cols-xl-6 g-4">
         <!-- Modal show start -->
         <div class="modal fade blur-div-background" data-bs-backdrop="static" data-bs-keyboard="false" id="modelShow" tabindex="-1" aria-labelledby="modelShowLabel" aria-hidden="true">
-          <div class="modal-dialog modal-lg modal-dialog-centered px-4">
+          <div class="modal-dialog modal-lg modal-dialog-centered">
             <div class="modal-content text-light">
               <div class="position-absolute top-0 start-100 translate-middle cursor-pointer p-3" data-bs-dismiss="modal" aria-label="Close">
                 <%= link_to "", data: {"turbo-prefetch": "false"} do %>
@@ -28,17 +28,16 @@
           <div class="col">
             <div class="h-100 rounded profile_border position-relative">
               <%= link_to order_path(order), data: {"turbo-prefetch": false, turbo_frame: "model_show"} do %>
-                <div class="text-center overflow-hidden s-model" data-bs-toggle="modal" data-bs-target="#modelShow">
-                  <% if order.image.attached? %>
-                    <%= image_tag url_for(order.image.variant(resize_to_fill: [200, 200])), class: "img-fluid rounded-top object-fit-fill" %>
+                <div class="text-center overflow-hidden s-model h-100" data-bs-toggle="modal" data-bs-target="#modelShow">
+                  <% if order.status == "completed" %>
+                    <img src="/order/order_<%= order.id %>/img_90.png" class="img-fluid rounded" alt="ZAAT" title="ZAAT">
                   <% else %>
-                    <% if order.status == "completed" %>
-                      <img src="/order/order_<%= order.id %>/img_180.png" class="img-fluid" alt="ZAAT" title="ZAAT">
-                    <% else %>
-                      <div class="text-light py-5 text-truncate">
-                        <%= order.prompt %>
-                      </div>
+                    <% if order.image.attached? %>
+                      <%= image_tag url_for(order.image.variant(resize_to_fill: [200, 200])), class: "img-fluid rounded-top object-fit-fill" %>
                     <% end %>
+                    <div class="text-light text-truncate position-absolute top-50 start-50 translate-middle">
+                      <%= order.prompt %>
+                    </div>
                   <% end %>
                 </div>
               <% end %>

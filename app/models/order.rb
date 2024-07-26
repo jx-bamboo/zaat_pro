@@ -2,7 +2,8 @@ class Order < ApplicationRecord
   belongs_to :user
   has_one_attached :image
 
-  validates :txhash, presence: true
+  validates :prompt, presence: true
+  validates :txhash, presence: true, uniqueness: true
 
   enum status: [:pending, :creating, :completed]
 

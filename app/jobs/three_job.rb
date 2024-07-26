@@ -81,12 +81,13 @@ class ThreeJob < ApplicationJob
   def build_api_data(order)
     logger.info "... in to build api data..."
     content = []
-    content << {name: "SubmitDraftModelGenerationTask", prompt: order.prompt} if order.prompt.present?
     if order.image.attached?
       base64_data = Base64.encode64(order.image.blob.download)
       content << {name: "imgtask", image: base64_data}
+    else
+      content << {name: "SubmitDraftModelGenerationTask"}
     end
-    content.first.merge(taskId: "order_#{order.id}", API_Key:)
+    content.first.merge(taskId: "order_#{order.id}", prompt: order.prompt, API_Key:)
   end
 
   def print_keys(hash, prefix = '')

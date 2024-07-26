@@ -16,7 +16,8 @@ class OrderController < ApplicationController
       OrderJob.perform_later(order.id)
       redirect_to profile_my_model_path, notice: "Success"
     else
-      redirect_to new_order_path, notice: "Failed"
+      notice = order.errors.full_messages.join(", ")
+      redirect_to new_order_path, notice:
     end
   end
 
