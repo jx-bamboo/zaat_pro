@@ -35,7 +35,7 @@
                     <% if order.image.attached? %>
                       <%= image_tag url_for(order.image.variant(resize_to_fill: [200, 200])), class: "img-fluid rounded-top object-fit-fill" %>
                     <% end %>
-                    <div class="text-light text-truncate position-absolute top-50 start-50 translate-middle">
+                    <div class="text-light text-truncate position-absolute top-50 start-50 translate-middle w-100">
                       <%= order.prompt %>
                     </div>
                   <% end %>
