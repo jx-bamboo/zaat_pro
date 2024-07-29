@@ -105,4 +105,6 @@ Rails.application.configure do
 		 :user_name      => Rails.application.credentials.dig(:mail, :user_name),
 		 :password       => Rails.application.credentials.dig(:mail, :password)
 	}
+
+  config.gpt_uri_backup = "http://120.224.26.32:13989"
 end
