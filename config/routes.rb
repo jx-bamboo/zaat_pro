@@ -4,9 +4,6 @@ Rails.application.routes.draw do
 
   get "token/index" => "token#index"
 
-  require 'sidekiq/web'
-  mount Sidekiq::Web => '/sidekiq'
-
   get "profile/index"
   get "profile/my_model"
   match "profile/verify_invite_code", via: %i[get post]
