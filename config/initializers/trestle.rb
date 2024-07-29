@@ -174,6 +174,12 @@ Trestle.configure do |config|
   #     image_tag(user.avatar_url, alt: user.name) if user.avatar_url?
   #   end
   # }
+  # config.auth.avatar = false
+  config.auth.avatar = ->(user) {
+    avatar do
+      image_tag("logo154.svg")
+    end
+  }
 
   # Customize the rendering of the current user's name in the main header.
   # Defaults to the user's #first_name and #last_name (last name in bold),
