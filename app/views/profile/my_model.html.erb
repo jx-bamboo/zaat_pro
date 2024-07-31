@@ -28,12 +28,14 @@
           <div class="col">
             <div class="h-100 rounded profile_border position-relative">
               <%= link_to order_path(order), data: {"turbo-prefetch": false, turbo_frame: "model_show"} do %>
-                <div class="text-center overflow-hidden s-model h-100" data-bs-toggle="modal" data-bs-target="#modelShow">
+                <div class="text-center overflow-hidden s-model" data-bs-toggle="modal" data-bs-target="#modelShow">
                   <% if order.status == "completed" %>
                     <img src="/order/order_<%= order.id %>/img_90.png" class="img-fluid rounded" alt="ZAAT" title="ZAAT">
                   <% else %>
                     <% if order.image.attached? %>
-                      <%= image_tag url_for(order.image.variant(resize_to_fill: [200, 200])), class: "img-fluid rounded-top object-fit-fill" %>
+                      <%= image_tag url_for(order.image.variant(resize_to_fill: [200, 200])), class: "img-fluid rounded" %>
+                    <% else %>
+                      <%= image_tag "mbg.png", class: "img-fluid rounded" %>
                     <% end %>
                     <div class="text-light text-truncate position-absolute top-50 start-50 translate-middle w-100">
                       <%= order.prompt %>

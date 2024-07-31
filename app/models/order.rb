@@ -5,12 +5,20 @@ class Order < ApplicationRecord
   validates :prompt, presence: true
   validates :txhash, presence: true, uniqueness: true
 
-  enum status: [:pending, :creating, :completed]
+  enum status: [:pending, :creating, :completed, :admin]
 
   scope :not_success, -> { where.not(status: 2).order(created_at: :desc)}
+  scope :not_admin, -> { where.not(status: 3).order(created_at: :desc)}
+  scope :all_admin, -> { where(status: 3).order(created_at: :desc)}
+
+  before_create :generate_order_number
 
   def file_name
     image.filename
+  end
+
+  def generate_order_number
+    self.order_number = Time.now.strftime("%Y%m%d%H%M%S%L")
   end
 
 end
