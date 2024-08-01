@@ -1,6 +1,6 @@
 <div class="bg-dark rounded">
   
-  <% if order.status == "completed" %>
+  <% if ["completed", "admin"].include?(order.status) %>
     <div class="position-relative" id="mmodel">
       <div id="three" class="p-0 w-100 h-100 overflow-hidden d-flex justify-content-center"></div>
     </div>

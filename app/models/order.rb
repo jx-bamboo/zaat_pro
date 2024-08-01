@@ -7,7 +7,7 @@ class Order < ApplicationRecord
 
   enum status: [:pending, :creating, :completed, :admin]
 
-  scope :not_success, -> { where.not(status: 2).order(created_at: :desc)}
+  scope :not_success, -> { where(status: [0, 1]).order(created_at: :desc).limit(3) }
   scope :not_admin, -> { where.not(status: 3).order(created_at: :desc)}
   scope :all_admin, -> { where(status: 3).order(created_at: :desc)}
 
