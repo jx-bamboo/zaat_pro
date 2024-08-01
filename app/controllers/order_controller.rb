@@ -8,7 +8,7 @@ class OrderController < ApplicationController
   def new
     @order = Order.new
     @not_success = current_user.orders.not_success
-    @pagy, @orders = pagy(Order.all_admin, limit: 20, anchor_string: 'data-remote="false"')
+    @pagy, @orders = pagy(Order.all_admin, limit: 24, anchor_string: 'data-remote="false"')
   end
   
   def create
