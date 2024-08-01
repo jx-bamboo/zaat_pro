@@ -48,7 +48,7 @@ class OrderJob < ApplicationJob
       if user.token.nil?
         token = user.create_token(balance: 1000)
       else
-        token = user.token.increment(:balance, 1000)
+        token = user.token.increment!(:balance, 1000)
       end
       user.token_changes.create(amount: 1000, event: 'metamask pay', token_id: token.id)
     end
