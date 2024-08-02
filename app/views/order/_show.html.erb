@@ -1,10 +1,8 @@
 <div class="bg-dark rounded">
-  
   <% if ["completed", "admin"].include?(order.status) %>
     <div class="position-relative" id="mmodel">
       <div id="three" class="p-0 w-100 h-100 overflow-hidden d-flex justify-content-center"></div>
     </div>
-    
     <div class="d-flex justify-content-between" style="background: #202020;" resize="vertical">
       <div><img src="/order/order_<%= order.id %>/img_90.png" class="img-fluid" alt="ZAAT" title="ZAAT"></div>
       <div><img src="/order/order_<%= order.id %>/img_180.png" class="img-fluid" alt="ZAAT" title="ZAAT"></div>
@@ -19,13 +17,11 @@
       <div class="mt-3"><%= order.status %> ...</div>
     </div>
   <% end %>
-  
-  <% if order.prompt.present? %>
-    <div class="rounded p-2 text-secondary text-center mt-3"><%= order.prompt %></div>
+  <div class="rounded p-2 text-secondary text-center my-3" data-controller="three" data-three-orderid="order_<%= order.id %>"><%= order.prompt %></div>
+  <% unless order.status == "admin" %>
+    <div class="d-flex justify-content-evenly py-4 cred">
+      <button id="d_model" data-controller="download" data-action="download#get_model" data-download-url="<%= order.id%>" class="bg_gradient px-4 py-2 rounded-pill text-light border-0">Download</button>
+      <button class="bg_gradient px-4 py-2 rounded-pill text-light border-0" disabled>NFT Marketplace</button>
+    </div>
   <% end %>
-
-  <div class="d-flex justify-content-evenly py-4" data-controller="three" data-three-orderid="order_<%= order.id %>">
-    <button id="d_model" data-controller="download" data-action="download#get_model" data-download-url="<%= order.id%>" class="bg_gradient px-4 py-2 rounded-pill text-light border-0">Download</button>
-    <button class="bg_gradient px-4 py-2 rounded-pill text-light border-0" disabled>NFT Marketplace</button>
-  </div>
 </div>
