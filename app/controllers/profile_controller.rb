@@ -20,7 +20,7 @@ class ProfileController < ApplicationController
             if user.token.nil?
               token = user.create_token(balance: 5000)
             else
-              token = user.token.increment(:balance, 5000)
+              token = user.token.increment!(:balance, 5000)
             end
     
             user.token_changes.create(amount: 5000, event: 'Invite user', token_id: token.id)
@@ -29,7 +29,7 @@ class ProfileController < ApplicationController
           if current_user.token.nil?
             token = current_user.create_token(balance: 1000)
           else
-            token = current_user.token.increment(:balance, 1000)
+            token = current_user.token.increment!(:balance, 1000)
           end
           current_user.token_changes.create(amount: 1000, event: 'Add invite code', token_id: token.id)
         rescue

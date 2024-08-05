@@ -12,9 +12,19 @@ class Users::ConfirmationsController < Devise::ConfirmationsController
   # end
 
   # GET /resource/confirmation?confirmation_token=abcdef
-  # def show
-  #   super
-  # end
+  def show
+    super
+    user = User.find_by(confirmation_token: params[:confirmation_token])
+
+    if user.confirmed?
+      if user.token.nil?
+        token = user.create_token(balance: 1000)
+      else
+        token = user.token.increment!(:balance, 1000)
+      end
+      user.token_changes.create(amount: 1000, event: 'verify email', token_id: token.id)
+    end
+  end
 
   # protected
 

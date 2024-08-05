@@ -1,16 +1,33 @@
-<h2>Resend confirmation instructions</h2>
+<div class="position-relative">
+  <%= link_to auth_modal_path, class: "position-absolute top-0 start-0 bg-transparent border-0 p-3", data: {"turbo-prefetch": "false"} do %>
+    <%= image_tag "to_left.svg" %>
+  <% end %>
+  <div class="login_div py-5 px-2 px-sm-3 px-md-4 px-lg-5 shadow-lg">
+    <div class="text-center">
+      <h3>Resend confirmation instructions</h3>
+    </div>
+    <div class="mx-auto row col-sm-8 pt-3">
+      <%= turbo_frame_tag "errors" %>
 
-<%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
-  <%= render "users/shared/error_messages", resource: resource %>
+      <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: {class: "px-0 mb-3"}) do |f| %>
+        <%= render "users/shared/error_messages", resource: resource %>
+        <div class="mb-3">
+          <%= f.label :email, class: "form-label" %> 
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email), class: "form-control form-control-lg text-bg-dark border-0", placeholder: "Enter email address", required: "required" %>
+        </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email) %>
+
+        <div class="mb-3 text-end d-flex justify-content-end">
+          <%= f.submit "Resend confirmation instructions", class: "btn btn-lg px-5 btn-dark rounded-pill hover_to_gradient d-flex" %>
+        </div>
+
+        <div class="pt-2 text-end d-flex justify-content-end">
+          <%= link_to "Sign up", new_user_registration_path, class: "text-light text-decoration-none nav navbar me-3", data: {"turbo-prefetch": "false"} %>
+          <button type="submit" class="btn btn-lg px-5 btn-dark rounded-pill hover_to_gradient d-flex">
+            <span class="fs0875 py-1">Log in</span>
+          </button>
+        </div>
+      <% end %>
+    </div>
   </div>
-
-  <div class="actions">
-    <%= f.submit "Resend confirmation instructions" %>
-  </div>
-<% end %>
-
-<%= render "users/shared/links" %>
+</div>

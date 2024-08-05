@@ -35,7 +35,7 @@
               </div>
             </div>
           </div>
-          <div class="text-center text-secondary">Drag and drop your 3D files here, or click to select files.Support x.obg, x.glb files.</div>
+          <div class="text-center text-secondary">Drag and drop your 3D files here, or click to select files.Support <span class="text-light">x.obg</span>, <span class="text-light">x.glb</span> files.</div>
         </div>
       </div>
     </div>
@@ -44,7 +44,9 @@
   <div>
     <%#= f.submit "Submit & Pay", class: "form-control hover_to_gradient btn btn-lg btn-dark rounded-pill mb-5" %>
     <div class="mb-3 text-secondary nav navbar">xToken Rewards Service Fee <span class="token_c">1000</span></div>
-    <input type="button" class="form-control hover_to_gradient btn btn-lg btn-dark rounded-pill mb-5" id="earn_btn" value="Earn & Pay" />
+    <!-- <input type="button" class="form-control hover_to_gradient btn btn-lg btn-dark rounded-pill mb-5" id="earn_btn" value="Earn & Pay" /> -->
+
+    <button class="form-control hover_to_gradient btn btn-lg btn-dark rounded-pill mb-4" id="earn_btn" type="button"><span class="fs-6">Earn & Pay</span></button>
   </div>
 <% end %>
 <script src="https://unpkg.com/web3@4.10.0/dist/web3.min.js"></script>
@@ -54,21 +56,15 @@
   document.getElementById('earn_model_file').addEventListener('change', function(e) {
     var files = e.target.files;
     var fileNamesDiv = document.getElementById('preview');
-    var maxFiles = 5; // 设定最大文件数量
+    var maxFiles = 5;
 
-    // 清除当前显示的文件名
     fileNamesDiv.innerHTML = '';
 
-    // 如果选择的文件数量超过最大限制，则弹出警告并停止后续处理
     if (files.length > maxFiles) {
       alert('You can only select a maximum of' + maxFiles + 'files.');
-      // 这里我们无法直接清除文件输入的值，因为它可能不受支持
-      // 可以通过设置input的value为''尝试（但这在某些浏览器中不起作用）
-      // e.target.value = ''; // 这可能不起作用
-      return; // 停止后续处理
+      return;
     }
 
-    // 如果文件数量没有超过限制，则继续处理
     for (var i = 0; i < files.length; i++) {
       var file = files[i];
       var fileName = file.name;
@@ -78,28 +74,20 @@
 
   document.getElementById('clear-files').addEventListener('click', function() {
     var fileInput = document.getElementById('earn_model_file');
-    // 尝试清除文件输入的值（在大多数浏览器中这不会工作）
-    // 但它可以重置到没有选择文件的状态
     fileInput.value = '';
     
-    // 同时清除预览区域
     let fileNamesDiv = document.getElementById('preview');
     fileNamesDiv.innerHTML = '';
 
-    // 创建新的div元素
     let errorDiv = document.createElement('div');
     errorDiv.className = 'text-center text-light';
     errorDiv.id = 'error';
 
-    // 创建img元素
     let img = document.createElement('img');
     img.src = '<%= asset_path("add.svg") %>';
     img.classList.add('rounded', 'shadow');
 
-    // 将img元素添加到div中
     errorDiv.appendChild(img);
-
-    // 将新创建的div添加到preview元素下
     fileNamesDiv.appendChild(errorDiv);
 });
 </script>
