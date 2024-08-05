@@ -5,7 +5,7 @@
   <%= form_for(@order, url: order_index_path(@order), html: {class: "order_form", id: "order_form"}, data: {turbo: false}) do |f| %>
     <%= f.hidden_field :txhash %>
     <div class="mt-3">
-      <%= f.text_area :prompt, rows: 8, class: "form-control text-secondary bg-transparent border-dark mb-3 fs0875", contenteditable: true, placeholder: "Enter your Prompt", required: "required" %>
+      <%= f.text_area :prompt, rows: 5, class: "form-control text-secondary bg-transparent border-dark mb-3 fs0875", contenteditable: true, placeholder: "Enter your Prompt", required: "required" %>
     </div>
     <div class="my-3 position-relative">
       <div class="text-center border border-dark py-3" style="height: 153px;">
@@ -16,8 +16,9 @@
     </div>
     <%= javascript_include_tag "preview_img", "data-turbo-track": "reload" %>
 
-    <div class="mb-3 text-secondary nav navbar">xToken Rewards Service Fee <span class="token_c">1000</span></div>
-    <input type="button" name="" class="form-control hover_to_gradient btn btn-lg btn-dark rounded-pill mb-5" id="order_btn" value="Create & Pay" />
+    <div class="text-secondary nav navbar">xToken Rewards Service Fee <span class="token_c">1000</span></div>
+    <!-- <input type="button" class="form-control hover_to_gradient btn btn-lg btn-dark rounded-pill mb-4" id="order_btn" value="Create & Pay" /> -->
+    <button class="form-control hover_to_gradient btn btn-lg btn-dark rounded-pill mb-4" id="order_btn" type="button"><span class="fs-6">Create & Pay</span></button>
   <% end %>
 <% end %>
 <script src="https://unpkg.com/web3@4.10.0/dist/web3.min.js"></script>
