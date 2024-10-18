@@ -27,5 +27,6 @@ module ZaatPro
     config.active_record.default_timezone = :utc
     # config.eager_load_paths << Rails.root.join("extras")
     config.active_job.queue_adapter = :sidekiq
+    config.rack_attack = YAML.load_file("#{Rails.root}/config/rack_attack.yml")
   end
 end

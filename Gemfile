@@ -54,3 +54,4 @@ gem "trestle-active_storage", git: "https://github.com/K4sku/trestle-active_stor
 gem "trestle-sidekiq"
 gem "pagy"
 gem "lograge"
+gem "rack-attack"

@@ -1,0 +1,12 @@
+routes:
+  - /users
+  - /users/sign_in
+  - /users/sign_up
+  - /users/password/new
+  - /users/password/edit
+  - /users/password
+  - /users/confirmation
+  - /order/new
+  - /order/edit
+  - /order/show
+  - /order
